@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>嗨！考啥？</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="Style.css"/>
+		<link rel="stylesheet" href="userinfo.css"/>
+		<img src="./image/heart.gif" height="50px" width="100%" />
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+					</button>
+					<a class="navbar-brand" href="index.html">嗨！考啥？</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Home</a></li>
+						<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">練功區<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="note.html">看筆記</a></li>
+							<li><a href="test.html">看考古</a></li>
+						</ul>
+						</li>
+						<li><a href="qanda.html">問答時間</a></li>
+						<li>
+							<a href='logout.php'>登出</a>
+						</li>
+						<li>
+							<iframe src="headerinfo.php" width="200px" height="50px" frameborder="0" scrolling="no"></iframe>
+						</li>
+					</ul>
+				</div>
+		  </div>
+		</nav>
+	</head>
+	<body>
+		<div class="container">
+			<h1>您好！神人小天！</h1>
+			<a href="renewinfo.html" class="button">修改資訊</a>
+			<a href="delete_test.html" class="button">管理考古</a>
+			<a href="delete_question.html" class="button">管理問題</a>
+			<a href="delete_note.html" class="button">管理筆記</a>
+			<a href="delete_answer.html" class="button">管理回答</a>
+			<div>
+				<form action="action_page.php">
+					<label for="fname">您的名稱</label>
+					<input type="text" id="fname" name="firstname" placeholder="神人小天">
+
+					<label for="lname">您的學號</label>
+					<input type="text" id="lname" name="lastname"  placeholder="12345678" disabled>
+
+					<label for="country">您的科系</label>
+					<input type="text" id="fname" name="firstname" placeholder="資訊工程系">
+				  
+					<input type="submit" value="確認修改">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
