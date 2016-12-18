@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/font-awesome.min.css"/>
   <link rel="stylesheet" href="Style.css"/>
   <link rel="stylesheet" href="qanda.css"/>
+  <link rel="stylesheet" href="upload.css">
   <header>
   <img src="./image/heart.gif" height="50px" width="100%" />
   <nav class="navbar navbar-inverse">
@@ -59,7 +60,29 @@
 				<p>我每次問他計概的題目，他都說他不會</p>
 				<p>可是每次他都考很高分！我真的搞不清楚為什麼</p>
 				<p>是因為他跟學妹走很近嗎？</p>
-				<button class="button" style='float:right;'><span>我要回答 </span></button>
+				<button class="button" style='float:right;' data-toggle="modal" data-target=".bs-example-modal-lg"><span>我要回答 </span></button>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content answerblock">
+			<br>
+				<form method="post" action="" class="ccform">
+					<div class="ccfield-prepend">
+						<input class="ccformfield" style='border-radius:10px;' type="text" placeholder="標題" required>
+					</div>
+					<div class="ccfield-prepend">
+						<textarea class="ccformfield" style='border-radius:10px;' name="comments" rows="8" placeholder="回答內容敘述..." required></textarea>
+					</div>
+					<div class="ccfield-prepend">
+							圖片上傳：
+							<input Type="File" Name="YouFile" class="ccformfield"  style='border-radius:10px;'>
+					</div>
+					<div class="ccfield-prepend">
+						<input class="ccbtn" type="submit" value="我要回答">
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
