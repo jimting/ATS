@@ -7,7 +7,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="Style.css">
+		<link rel="stylesheet" href="Style.css"/>
+		<link rel="stylesheet" href="userinfo.css"/>
 		<img src="./image/heart.gif" height="50px" width="100%" />
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
@@ -21,7 +22,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>
+						<li><a href="index.html">Home</a></li>
 						<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">練功區<span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -36,18 +37,67 @@
 						<li>
 							<iframe src="headerinfo.php" width="200px" height="50px" frameborder="0" scrolling="no"></iframe>
 						</li>
-						<li>
-							<iframe src="admin.php" width="200px" height="50px" frameborder="0" scrolling="no"></iframe>
-						</li>
 					</ul>
 				</div>
-			</div>
+		  </div>
 		</nav>
 	</head>
 	<body>
-		<div class="jumbotron text-center">
-		  <img src="./image/hello.png" width="100%"/>
-		  <img src="./image/hello2.png" width="100%"/>
+	<?php session_start(); ?>
+		<div class="container">
+		<div class="row">
+			<h1>您好！</h1>
+			<a href="renewinfo.php" class="button col-md-2">修改資訊</a>
+			<a href="delete_test.php" class="button col-md-2">管理考古</a>
+			<a href="delete_question.php" class="button col-md-2">管理問題</a>
+			<a href="delete_note.php" class="button col-md-2">管理筆記</a>
+			<a href="delete_answer.php" class="button col-md-2">管理回答</a>
+			<a href="delete_question.php" class="button col-md-2">管理發問</a>
+		</div>
+			<div>
+<?php
+include("mysql_connect.inc.php");
+
+if($_SESSION['user_ID'] != null)
+{
+
+		$id = $_SESSION['user_ID'];
+        $sql = "SELECT * FROM user where user_ID='$id'";
+        $result = mysql_query($sql);
+        while($row = mysql_fetch_row($result))
+        {
+?>
+				<table>
+					<tr>
+						<td>您的學號</td>
+						<td><?php  echo "$row[1]";   ?></td>
+					</tr>
+					<tr>
+						<td>您的科系</td>
+						<td><?php  echo "$row[3]";   ?></td>
+					</tr>
+					<tr>
+						<td>什麼時候加入</td>
+						<td><?php  echo "$row[4]";   ?></td>
+					</tr>
+					<tr>
+						<td>等級</td>
+						<td><?php  echo "$row[5]";   ?></td>
+					</tr>
+				</table>
+<?php	
+        }
+	
+}
+else
+{
+        echo '您無權限觀看此頁面!';
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=login.html>';
+}
+?>
+				
+				
+			</div>
 		</div>
 	</body>
 </html>

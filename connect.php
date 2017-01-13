@@ -1,7 +1,9 @@
 ﻿<?php session_start(); ?>
 <!--上方語法為啟用session，此語法要放在網頁最前方-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <?php
 //連接資料庫
 //只要此頁面上有用到連接MySQL就要include它
@@ -16,16 +18,18 @@ $row = @mysql_fetch_row($result);
 
 //判斷帳號與密碼是否為空白
 //以及MySQL資料庫裡是否有這個會員
-if($id != null && $pw != null && $row[1] == $id && $row[2] == $pw)
+if($id != null && $pw != null && $row[1] == $id && $row[2] == md5($pw) && $row[6] > 0)
 {
         //將帳號寫入session，方便驗證使用者身份
-        $_SESSION['user_name'] = $id;
-        echo '<div class="login"><h1>登入成功！<h1><br><h1>冒險即將啟程！</h1></div>';
-        echo '<meta http-equiv=REFRESH CONTENT=3;url=index.html>';
+        $_SESSION['user_ID'] = $row[0];
+		$_SESSION['user_number'] = $id;
+
+        echo '<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Success!</strong>登入成功囉！系統將自動轉跳自首頁！</div>';
+        echo '<meta http-equiv=REFRESH CONTENT=1;url=index.html>';
 }
 else
 {
-        echo '<div class="login"><h1>請再次確認您的帳號密碼是否正確</h1><br><h1>系統將自動轉跳自登入頁！</h1></div>';
-        echo '<meta http-equiv=REFRESH CONTENT=3;url=login.html>';
+        echo '<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Error!</strong>登入失敗！請再次確認您的帳號密碼是否正確<br>系統將自動轉跳自首頁！</div>';
+        echo '<meta http-equiv=REFRESH CONTENT=1;url=login.html>';
 }
 ?>
