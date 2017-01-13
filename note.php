@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-  <title>嗨！考啥？</title>
+<title>嗨！考啥？</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -31,7 +31,7 @@
           <a class="active" data-toggle="dropdown" href="#">練功區<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="note.php">看筆記</a></li>
-			<li><a href="test.php">看考古</a></li>
+      <li><a href="test.php">看考古</a></li>
           </ul>
         </li>
         <li><a href="question.php">問答時間</a></li>
@@ -49,7 +49,7 @@
 </head>
 <body>
 <div class="jumbotron text-center">
-	<img src="./image/test.png" width="100%" />
+	<img src="./image/note.png" width="100%"/>
 </div>
 <div data-role="main" class="ui-content ">
 		<div class="col-md-12 ">
@@ -115,10 +115,10 @@
             </div>
           </div>
 </div>
-	<a href="../uploadify/Archaeology.php" class="btn btn-lg btn-default" style="float:right;width:300px">
-	<span class="glyphicon glyphicon-fire"></span> 上傳考古</a>
-	<table>
-		<thead>
+<a href="../uploadify/note.php" class="btn btn-lg btn-default" style="float:right;width:25%">
+<span class="glyphicon glyphicon-fire"></span> 上傳筆記</a>
+			<table>
+		  <thead>
 			<tr>
 				<th>科系</th>
 				<th>年分</th>
@@ -128,14 +128,13 @@
 				<th><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></th>
 				<th>上傳時間</th>
 			</tr>
-		</thead>
-		<tbody>
+		  </thead>
+		  <tbody>
 			<?php
-			include "searchtest.php";
+			include "searchnote.php";
 			?>
 		</tbody>
-	</table>
-</div>
-
+		</table>
+</div> 
 	</body>
 </html>
